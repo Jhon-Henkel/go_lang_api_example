@@ -1,0 +1,28 @@
+POST http://localhost:8000/products
+Content-Type: application/json
+{
+    "name": "Product 1",
+    "price": 100
+}
+
+###
+
+GET http://localhost:8000/products HTTP 1.1
+
+###
+
+GET http://localhost:8000/products/{id} HTTP 1.1
+Content-Type: application/json
+
+###
+
+PUT http://localhost:8000/products/{id} HTTP 1.1
+Content-Type: application/json
+{
+    "name": "Product Updated",
+    "price": 100
+}
+
+###
+
+DELETE http://localhost:8000/products/{id} HTTP 1.1
