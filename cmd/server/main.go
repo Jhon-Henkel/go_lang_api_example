@@ -29,6 +29,10 @@ func main() {
 
 	router := chi.NewRouter()
 	router.Use(middleware.Logger)
+	// esse middleware é para recuperar o panic, não deixando o servidor cair
+	router.Use(middleware.Recoverer)
+	router.Use(middleware.WithValue("jwt", config.TokenAuthKey))
+	router.Use(middleware.WithValue("jwtExpires", config.JWTExpiresIn))
 
 	router.Route("/products", func(router chi.Router) {
 		router.Use(jwtauth.Verifier(config.TokenAuthKey))
@@ -41,7 +45,7 @@ func main() {
 	})
 
 	userDB := database.NewUser(db)
-	userHandler := handlers.NewUserHandler(userDB, config.TokenAuthKey, config.JWTExpiresIn)
+	userHandler := handlers.NewUserHandler(userDB)
 
 	router.Post("/users", userHandler.CreateUser)
 	router.Post("/users/generate_token", userHandler.GetJWT)
