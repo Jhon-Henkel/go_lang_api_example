@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server Petstore server.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Jhon",
+            "url": "https://jhon.dev.br",
+            "email": "jhon@jhon"
+        },
+        "license": {
+            "name": "MIT"
+        },
+        "version": "v1"
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "paths": {}
+}

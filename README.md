@@ -4,6 +4,13 @@ No repositório abaixo tem um guia de padrão de organização do projeto que a 
 https://github.com/golang-standards/project-layout
 ```
 
+Swagger link http://localhost:8000/docs/index.html#
+
+Para gerar o swagger.json (rodar na raiz do projeto)
+```
+swag init -g cmd/server/main.go
+```
+
 A pasta internal, é somente para a sua aplicação e não deve ser compartilhada com outros projetos. Essa pasta não pode ficar disponível para outras pessoas importarem. Tudo que você não quer que seja importado por outras aplicações, deve ficar dentro dessa pasta.
 
 A pasta pkg é o oposto da internal, tudo que você quer que seja importado por outras aplicações, deve ficar dentro dessa pasta.
@@ -16,4 +23,4 @@ A pasta test armazena os testes da aplicação, stubs, documentações do teste.
 
 A pasta api tem documentações da API, swagger, openapi, etc.
 
-O foco dessa pasta é estudar a estrutura de API com GO, a parte de domain e infraestrutura não será abordada nessa etapa.
+O foco dessa pasta é estudar a estrutura de API com GO, a parte de domain, regras de negócio e infraestrutura não será abordada nessa etapa.
